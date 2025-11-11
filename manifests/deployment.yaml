@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-add-task-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-add-task-api
+  template:
+    metadata:
+      labels:
+        app: todo-add-task-api
+    spec:
+      containers:
+      - name: todo-add-task-api
+        image: acr5aks.azurecr.io/todo-add-tasks-api:v4
+        ports:
+        - containerPort: 8000
